@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Personal Loan Predictor</title>
+<!--<link rel="stylesheet" type="text/css" href="MyWebPage-2.css">
+<script src="MyWebPage-2.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<meta name = "viewport" content = "width:device-width, initial-scale = 1">
+<link rel = "stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport"content="width=device-width, initial-scale=1">
+ <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+ body { 
+ background: url(https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/05/29/Photos/Processed/pl-kfOI--621x414@LiveMint-kvoC--621x414@LiveMint.jpg) no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+
+.panel-default {
+ opacity: 0.9;
+ margin-top:80px;
+
+}
+.form-group.last {
+ margin-bottom:30px;
+}
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <strong>Personal Loan Prediction Form</strong>
+                </div>
+                <div class="panel-body">
+  <form action="{{ url_for('main') }}" method="POST" class="form-horizontal" role="form">
+		<div class="form-group">
+			<label for="Age" class="col-sm-3 control-label">Age</label>
+		   <div class="col-sm-9">
+                            <input class="form-control" id="Age" placeholder=" Enter Age" required="" type="number" name="Age">
+                        </div>
+                    </div>
+	<div class="form-group">
+			<label for="Experience" class="col-sm-3 control-label">Experience</label>
+		   <div class="col-sm-9">
+                            <input class="form-control" id="Experience" placeholder=" Enter Experience" required="" type="number" name="Experience">
+                        </div>
+                    </div>			
+					
+    <div class="form-group">
+			<label for="Income" class="col-sm-3 control-label">Income</label>
+		   <div class="col-sm-9">
+                            <input class="form-control" id="Income" placeholder=" Enter Income" required="" type="number" name="Income">
+                        </div>
+                    </div>	
+	<div class="form-group">
+			<label for="Family" class="col-sm-3 control-label">Family</label>
+		   <div class="col-sm-9">
+                            <input class="form-control" id="Family" placeholder=" Enter Family Members" required="" type="number" name="Family">
+                        </div>
+                    </div>	
+	<div class="form-group">
+			<label for="CCAvg" class="col-sm-3 control-label">CC Average</label>
+		   <div class="col-sm-9">
+                            <input class="form-control" id="CCAvg" placeholder=" Enter CC Average" required="" type="number" name="CCAvg">
+                        </div>
+                    </div>	
+	
+	
+   
+    <div class="form-group">
+			<label for="Mortgage" class="col-sm-3 control-label">Mortgage</label>
+		   <div class="col-sm-9">
+                            <input class="form-control" id="Mortgage" placeholder=" Enter Mortgage" required="" type="number" name="Mortgage">
+                        </div>
+                    </div>	
+					
+    <div class="form-group">
+			<label for="SecuritiesAccount" class="col-sm-3 control-label">SecuritiesAccount</label>
+			 <div class="col-sm-9">
+    <select id="SecuritiesAccount" name="SecuritiesAccount">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+	</div>
+	</div>
+	<div class="form-group">
+			<label for="CDAccount" class="col-sm-3 control-label">CDAccount</label>
+			 <div class="col-sm-9">
+    <select id="CDAccount" name="CDAccount">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+	</div>
+	</div>
+    <div class="form-group">
+			<label for="CreditCard" class="col-sm-3 control-label">Credit Card</label>
+			 <div class="col-sm-9">
+    <select id="CreditCard" name="CreditCard">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+	</div>
+	</div>
+	<div class="form-group">
+			<label for="Education" class="col-sm-3 control-label">Education</label>
+			 <div class="col-sm-9">
+    <select id="Education" name="Education">
+
+      <option value="1">12th</option> 
+      <option value="2">Bachelors</option>    
+      <option value="3">Masters</option>    
+    </select>
+	</div>
+	</div>
+	<div class="form-group last">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-success btn-sm">
+                                Submit</button>
+                        </div>
+    </div>
+  </form>
+  <br>
+      </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+  <div class="result" align="center">
+    {% if result == 1 or result == 0%}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Personal Loan Prediction Value:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+ </div>
+</div>
+</body>
+</html>
