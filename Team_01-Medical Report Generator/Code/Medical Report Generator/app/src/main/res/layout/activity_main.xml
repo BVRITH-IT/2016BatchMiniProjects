@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="30dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/images"
+        ></ImageView>
+
+
+    <EditText
+        android:id="@+id/userLview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Enter E-Mail"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#A84646"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/passLView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter password"
+        android:inputType="textPassword"
+        android:textColorHint="#A84646"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/logButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_report"
+        android:onClick="signUp"
+        android:text="Log In"
+        android:textColor="#7C59BE"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/regButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_report"
+        android:onClick="register"
+        android:text="Register"
+        android:textColor="#7C59BE"
+        android:textSize="25sp" />
+
+</LinearLayout>

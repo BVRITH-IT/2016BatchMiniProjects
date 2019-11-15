@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Medical Report Generator</string>
+    <string name="biological_references">Biological References</string>
+    <string name="name">Name:</string>
+    <string-array name="initials_items">
+        <item>--Choose--</item>
+        <item>Baby.</item>
+        <item>Mr.</item>
+        <item>Mrs.</item>
+        <item>Ms.</item>
+    </string-array>
+    <string-array name="test_items">
+        <item>--Test Name--</item>
+        <item>THYROID PROFILE(T3,T4,TSH)</item>
+        <item>CALCIUM</item>
+<!--        <item>IRON</item>-->
+        <item>COMPLETE BLOOD PICTURE(CBP)</item>
+        <item>RANDOM BLOOD GLUCOSE(RBG)</item>
+        <item>URIC ACID</item>
+        <item>UREA</item>
+        <item>LIVER FUNCTION TEST</item>
+<!--        <item>CREATININE SERUM</item>-->
+    </string-array>
+    <string name="triallft">
+        Core Blood: &lt; 2.0 \n
+        0-1 day: 2.0-6.0 \n
+        1-2 days : 6.0-10.0 \n
+        3-5 days : 4.0-8.0 \n
+        Child: 0.3 - 1.2 \n
+        Adults : 0.3 - 1.2
+    </string>
+    <string name="trial2">
+        40-50 \n Critical Low : &lt; 2000 \n Critical High : &gt; 30000
+    </string>
+    <string name="trial3">
+        1.5-4.0 \n Critical Low: &lt; 0.30 lakhs \n Critical High : &gt; 10lakhs
+    </string>
+    <string name="trial1">
+        13.0-17.0 \n Critical Low : &lt; 7.0 \n Critical High : >20
+    </string>
+    <string name="trial4">
+        4000-10000 \n Critical Low: &lt; 2000 \n Critical High: &gt; 30000
+    </string>
+    <string name="trial10">
+        &lt; 140 \n Critical Low : 40 \n Critical High : 450
+    </string>
+    <string name="trial20">
+        16-48 \n  Critical High : 171
+    </string>
+    <string-array name="age_items">
+        <item>--Choose--</item>
+        <item>years</item>
+        <item>months</item>
+    </string-array>
+</resources>
