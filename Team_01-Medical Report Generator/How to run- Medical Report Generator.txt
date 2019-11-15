@@ -1,0 +1,15 @@
+Step 1) first download android studio
+
+https://developer.android.com/studio/?utm_source=android-studio
+
+Step 2) install and open it
+
+Step 3) Extract the zip file we have provided.
+
+Step 4) Open Android Project and go to Import existing Android Studio Project.
+
+Steps 5) now connect your Device via USB. Device should be in Developer’s mode and USB debugging
+on.
+
+Step 6) You will see gradle build process running automatically.
+It will run and install your apk in Android.
