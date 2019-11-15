@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script>
+		function toggle_display(){
+			var e1 = document.getElementById("tweetsinfo").style.display;
+ 			 if(e1=='none') {
+ 			 	document.getElementById("tweetsinfo").style.display = 'block';
+ 			 	document.getElementById("tweetsinfo").value = "Hide Fetched Tweets";
+ 			 } else {
+ 			 	document.getElementById("tweetsinfo").style.display = 'none';
+ 			 	document.getElementById("tweetsinfo").value = "Show Fetched Tweets";
+ 			 }
+		}
+		function word_display(){
+			var e1 = document.getElementById("wordcld").style.display;
+ 			 if(e1=='none') {
+ 			 	document.getElementById("wordcld").style.display = 'block';
+ 			    document.getElementById("wordcld").value = "Hide WordCloud";
+ 			 } else {
+ 			 	document.getElementById("wordcld").style.display = 'none';
+ 			 	document.getElementById("wordcld").value = "Show WordCloud";
+ 			 }
+		}
+	</script>
+</head>
+<body style = "background-color:rgb(245, 235, 255);">
+<div style="color:black;"><center><b><font size="5">{{name}} Sentimental Analysis Data</font></b></center></div>
+<div style = "background-color:rgb(0, 0, 54);">
+<br>
+	<center><div class="row" style="width:800px">
+		<div class="col-md-4" style="display:inline-block;">
+	<form action="/">
+	<p><b><input type="submit" value = "Search for new Hashtag"  style=" width:200px; border-radius: 8px; text-decoration: none; background-color:rgb(245, 235, 255); border: black; color: black; padding: 10px 20px;  text-align: center; font-size: 16px; margin: 4px 2px;"></b></p>
+</form>
+			</div>
+		<div class="col-md-4" style="display:inline-block">
+<form>
+	<p><b><input type="button" value = "Show Fetched Tweets" onclick='toggle_display()' style=" width:200px; border-radius: 8px; text-decoration: none; background-color:rgb(245, 235, 255); border: black; color: black; padding: 10px 20px;  text-align: center; font-size: 16px; margin: 4px 2px;"></b></p>
+</form>
+			</div>
+			<div class="col-md-4" style="display:inline-block">
+<form>
+	<p><b><input type="button" value = "Show WordCloud" onclick='word_display()' style=" width:200px; border-radius: 8px; text-decoration: none; background-color:rgb(245, 235, 255); border: black; color: black; padding: 10px 20px;  text-align: center; font-size: 16px; margin: 4px 2px;"></b></p>
+</form>
+				</div>
+</div></center>
+<fieldset style="width:500px, float:left;">
+	<div style="width:1050px">
+		<div style="display:inline-block;margin-left:200px; margin-top:85px">
+			<h2 style="color:white"><u><b>Sentiment Percentage</b></u></h2>
+			{% for row in percent %}
+					<option style="color:white;">{{row}}</option><br>
+			{% endfor %}
+		</div>
+		<div style="display:inline-block;  float:right; margin-right:100px; margin-top:20px;">
+			<img src = "static/{{hash}}" style="height:300px; width:300px;"><br><br>
+		</div>
+		</div>
+	</fieldset>
+	</div>
+
+	<div id = 'wordcld' style="display:none">
+        <center><h2 style="color:black"><u><b>WordCloud</b></u></h2></center>
+		<img src = "static/word/{{hash}}" style="height:300px; width:300px; display:block; margin-top:20px;  margin-left: auto;  margin-right: auto;"><br><br>
+	</div>
+	<div id = 'tweetsinfo' style="display:none">
+        <center><h2 style="color:black"><u><b>Tweets</b></u></h2></center>
+		<table border="1" style="width:100%">
+			<tr><th><b>Sl. No</b></th><th><b>Tweet</b></th><th><b>Sentiment</b></th></tr>
+		{% for row in tweets %}
+			<tr><th>{{ loop.index }}</th><th>{{row['text']}}</th><th>{{row['sentiment']}}</th></tr>
+		{% endfor %}
+		</table>
+	</div>
+
+</body>
+</html>
