@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Online Doctor Appointment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+body {font-family: georgia,garamond,serif;font-size:20px;font-style:italic;}
+form {border: 4px solid #f1f1f1;}
+
+label {
+  text-align:right;
+  padding-right:20px;
+  display:inline-block;
+  min-width:150px;
+}
+
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.imgcontainer {
+  text-align: center;
+  margin: 2px 0 2px 0;
+}
+</style>
+    
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Avail Doctors</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#search-section" class="nav-link"><span>Search</span></a></li>
+	          <li class="nav-item"><a href="#makeappointment-section" class="nav-link"><span>Make Appointment</span></a></li>
+	          <li class="nav-item"><a href="#viewappointment-section" class="nav-link"><span>View Appointments</span></a></li>
+	          <li class="nav-item"><a href="index.html" class="nav-link"><span>Logout</span></a></li>
+	          </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  
+	  <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_3.jpg');" data-section="home" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 pt-5 ftco-animate">
+          	<div class="mt-5">
+          		<span class="subheading">Welcome to E-Doctor Appointment</span>
+	            <h1 class="mb-4">We are here <br>for your Care</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><br><br><br><br>
+    
+ <section class="hero-wrap js-fullheight"  id="search-section" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+      <center><h1>Search</h1></center>
+        <center>
+    	<form action="searchdoctors.jsp" method="post">
+			    <div class="container">
+			      <label for="qual"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Specialization</b></label>
+			      <!-- <input type="text" placeholder="Enter type of doctor" name="qual" required><br><br>
+			-->
+					<select name="qual" style="width:30%;">
+			 	<option value="">--Select Specialization--</option>
+			 	<option value="BDS" >BDS-Dental</option>
+			 	<option value="General Physician" >General Physician-Multiple Health Issues</option>
+			 	<option value="Neurologist" >Neurologist-Nervous system disorders</option>
+			 	<option value="Pediatrician" >Pediatrician-Childhood illness</option>
+			 	<option value="Cardiologist" >Cardiologist-Heart Problems</option>
+			 	<option value="ophthalmologist" >ophthalmologist-Eye Problems</option>
+			 </select><br><br>
+			      <button type="submit">Submit</button>
+			    </div>
+			  </form>   
+  </center>
+  
+      </div>
+    </section>
+    
+    <section class="hero-wrap js-fullheight"  id="makeappointment-section" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+      <center><h1>Make Appointments</h1></center>
+        <center>
+        	<form action="makeappointmentServlet" method="post">
+			    <div class="container">
+			      <label for="name"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Name</b></label>
+			      <input type="text" placeholder="Enter name" name="name" required><br><br>
+			
+			      <label for="gnd"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Gender</b></label>
+			      <input type="text" placeholder="Enter Gender" name="gnd" required><br><br>
+			      
+			      <label for="age"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Age</b></label>
+			      <input type="text" placeholder="Enter Age" name="age" required><br><br>
+			      
+			      <label for="date"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Date(YYYY-MM-DD)</b></label>
+			      <input type="date" placeholder="Enter Date" name="date" required><br><br>
+			      
+			      <label for="time"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Time(HH-MM-SS)</b></label>
+			      <input type="time" placeholder="Enter Time" name="time" required><br><br>
+					
+				  <label for="dname"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Doctor Name</b></label>
+				  <select name="dname" style:"width=30%">
+			 	<option value="">--Select Doctor Name--</option>
+			 	<option value="Ramya" >Ramya</option>
+			 	<option value="Aravind" >Aravind</option>
+			 	<option value="Amar" >Amar</option>
+			 	<option value="Rajani" >Rajani</option>
+			 	<option value="Keerthana" >Keerthana</option>
+			 	<option value="Sahasra" >Sahasra</option>
+			 	<option value="Sarada" >Sarada</option>
+			 </select><br><br>
+			      <!-- <input type="text" placeholder="Enter Doctor Name" name="dname" required><br><br> -->
+			      
+			      <label for="hname"><b style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">Hospital Name</b></label>
+			      <select name="hname" style:"width=30%">
+			 	<option value="">--Select Doctor Name--</option>
+			 	<option value="Kims" >Kims</option>
+			 	<option value="Remedy" >Remedy</option>
+			 	<option value="Landmark" >Landmark</option>
+			 	<option value="Vasan Eye Care" >Vasan Eye Care</option>
+			 	<option value="Neehar Neuro Center" >Neehar Neuro Center</option>
+			 </select><br><br>
+			      <!--  <input type="text" placeholder="Enter Hospital Name" name="hname" required><br><br>-->
+			      
+			      <button type="submit">Submit</button>
+			    </div>
+			  </form>      
+        </center>
+      </div>
+    </section><br><br><br><br><br><br><br><br><br><br><br>
+    
+  <section class="hero-wrap js-fullheight"  id="viewappointment-section" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+      <center><h1>View Appointment</h1></center>
+        <center>
+        <form class="modal-content animate" action="viewmyappointments.jsp" method="post">
+    <div class="container">
+      <label for="uname"><b>User Name</b></label>
+      <input type="text" placeholder="Enter User Name" name="uname" required><br><br>
+     
+      
+      <button type="submit">View Appointments</button>
+    </div>
+  </form>      
+        </center>
+      </div>
+    </section>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
