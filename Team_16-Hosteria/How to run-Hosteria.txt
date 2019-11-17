@@ -1,0 +1,8 @@
+How to run the project (steps):
+1. Install xampp.
+2. Open xampp control panel and start the apache and mysql services.
+3. Open command prompt and go to the file location.
+4. Type "node login.js" in the cmd.
+5. Once the programs is connected the open browser.
+6. In the browser, enter "localhost:8000" in the adress bar for the web page.
+7. For the database enter "http://localhost/phpmyadmin/" in the adress bar for the database details.
