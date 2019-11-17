@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap-theme.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="fonts/"></script> 
+<title>Hostel Management System</title>
+</head>
+<style>
+html,body,h1,h2,h3{font-family: 'Patua One', cursive;}
+h4,h5,h6 {font-family: "Roboto", sans-serif; color:#e5e5e5;}
+
+input::-webkit-input-placeholder {
+	color: black  !important;
+	text-align: center;
+}
+		 
+input:-moz-placeholder { /* Firefox 18- */
+	color: black  !important;  
+	text-align: center;
+}
+	 
+input::-moz-placeholder {  /* Firefox 19+ */
+	color: black !important;  
+	text-align: center;
+}
+	 
+input:-ms-input-placeholder {  
+	color: black !important;  
+	text-align: center;
+}
+
+@-webkit-keyframes autofill {
+    to {
+        color: black;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+
+.inputstyleSignIn{
+    	background: transparent;
+    	color:black;
+    	border:none;
+    	border-bottom: 1px solid black;
+    	outline: none;
+    	text-align: center;
+    	width: 250px;
+}
+
+.inputstyleSignUp{
+    	background: transparent;
+    	color:black;
+    	border:none;
+    	border-bottom: 1px solid black;
+    	outline: none;
+    	text-align: center;
+    	width: 250px;
+}
+
+.loginstyle{
+	background: #1ba2c4;
+	color: white;
+	outline: none;
+	text-align: center;
+	margin-top: 1em;
+}
+
+.alignCenter {
+	display: table;
+	margin: 0 auto; 
+}
+.nohover:hover{
+	background: #17202A;
+	color:white;
+}
+
+.section1 {
+    height: 100%; 
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-sm-7 col-xs-6" style="background-image: url('hostel.jpg');min-height:100vh;background-repeat: no-repeat;background-position: center;
+  background-size: cover;">
+			<h1 style="color: white;"><b>Welcome To Hosteria</b></h1>
+			
+			
+
+			<button type="button" id="toggleSign" class="btn btn-lg pull-right" style="margin-right:2em;margin-top:20em;background-color:white; color: #000000; border-radius:0px;"><span id="buttonText">Get Registered</span></button>
+			<div style="position: absolute;left: 10px;bottom: 10px;">
+				<h6 style="color: black"><span class="glyphicon glyphicon-envelope">&nbsp;</span><code id="adminEmail">hosteria@gmail.com</code></h6>
+				<h6 style="color: black"><span class="glyphicon glyphicon-phone">&nbsp;</span><code id="adminPhone">9876543210</code></h6>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-5 col-xs-6" style="background-color:#FFFFFF;min-height:100vh;">
+			<h2 id="sign" style="font-family: 'Roboto', sans-serif; color:grey;">Sign In</h2>
+			<hr>
+			<div class="alignCenter" style="margin-top: 10em;">
+			<form id="form1" name="form1" method="get" action="/signin">
+				<div class="form-group">
+					<input type="text" class="inputstyleSignIn" id="LogInName" name="email" onfocus="this.placeholder='';" onblur="this.placeholder='Email';" placeholder="Email"><!-- Name feild in search box -->
+				</div>
+				<div class="form-group" >
+					<input type="password" class="inputstyleSignIn" id="LogInEmail" name="password" onfocus="this.placeholder='';" onblur="this.placeholder='Password';" placeholder="Password">
+				</div>
+				<div class="form-group">
+				    <div class="col-md-4 col-sm-4 col-xs-4" style="padding:0px;">
+				    <label class="radio-inline" style="color:black;"><input type="radio" id="type" name="type" value="S">Student</label>
+				    </div>
+				    <div class="col-md-5 col-sm-5 col-xs-5" style="padding:0px;">
+				    <label class="radio-inline" style="color:black;"><input type="radio" id="type" name="type" value="H">HandyMan</label>	
+				    </div>
+				    <div class="col-md-3 col-sm-3 col-xs-3" style="padding:0px;">
+				    <label class="radio-inline" style="color:black;"><input type="radio" id="type" name="type" value="A">Admin</label>	
+				    </div>
+				</div>
+				<div class="form-group" style="text-align: center;">
+					<input type="submit" class="btn" style="margin-top:2em;background-color:#1ba2c4; color:white ; border-radius:0px;" value="Let me In">
+				</div>
+			</form>
+			<form id="form2" name="form2" method="post" action="/signup" style="display:none;">
+			<div class="form-group">
+		    	<input type="text" class="inputstyleSignUp" id="Name" name="name" placeholder="Full Name" onfocus="this.placeholder='';" onblur="this.placeholder='Full Name';"><!-- Name feild in register box -->
+		    </div>
+		    <div class="form-group">
+		    	<input type="text" class="inputstyleSignUp" id="rollno" name="rollno" placeholder="Roll no" onfocus="this.placeholder='';" onblur="this.placeholder='Roll no';"><!-- Name feild in register box -->
+		    </div>
+		    <div class="form-group">
+		    	<input type="Room no." class="inputstyleSignUp" id="roomno" name="roomno" placeholder="Room no." onfocus="this.placeholder='';" onblur="this.placeholder='Room no.';"><!-- Email feild in register box -->
+		    </div>
+		    <div class="form-group">
+		    	<input type="email" class="inputstyleSignUp" id="Email" name="email" placeholder="Email" onfocus="this.placeholder='';" onblur="this.placeholder='Email';"><!-- Email feild in register box -->
+		    </div>
+		    <div class="form-group">
+		    	<input type="text" class="inputstyleSignUp" id="phone" name="phoneno" placeholder="Phone no." onfocus="(this.type='number');this.placeholder='';" onfocusout="(this.type='text')" onblur="this.placeholder='Phone no.';"><!-- DOB feild in register box -->
+		    </div>
+		    <div class="form-group">
+		    	<input type="password" class="inputstyleSignUp" id="Password" name="password" placeholder="Password" onfocus="this.placeholder='';" onblur="this.placeholder='password';"><!-- Mobile feild in register box -->
+		    </div>
+		    <div class="form-group">
+		    <div class="col-md-6">
+		    <label class="radio-inline" style="color:black;"><input type="radio" id="Gender" name="gender" value="M">Male</label>
+		    </div>
+		    <div class="col-md-6">
+		    <label class="radio-inline" style="color:black;"><input type="radio" id="Gender" name="gender" value="F">Female</label>	
+		    </div>
+		    </div>
+		    <div class="form-group" style="text-align: center;">
+				<input type="submit" class="btn" style="margin-top:1em;background-color:#1ba2c4; color:white ; border-radius:0px;" value="Register Me">
+			</div>
+	    	</form>
+			<div class="alert alert-warning" align="center" id="alert-box" style="visibility: hidden;">
+						Successfully Registered
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+<script>
+sessionStorage.type;
+sessionStorage.email;
+var form1 = $('#form1');
+form1.submit(function () {
+	$.ajax({
+		type: form1.attr('method'),
+		url: form1.attr('action'),
+		data: form1.serialize(),
+		success: function (data) {
+			console.log(JSON.parse(data));
+			var type=$('input[name="type"]:checked').val();
+			console.log(type);
+			if(data!="false"){
+				sessionStorage.type=type;
+				sessionStorage.email=$('#LogInName').val();
+				if(type=='S')
+					window.location.href = "student.html";
+				else if(type=='A')
+					window.location.href = "admin.html";
+				else if(type=='H')
+					window.location.href = "handyman.html";
+			}
+			else{
+				document.getElementById("alert-box").innerHTML="Wrong Email or Password";
+				document.getElementById("alert-box").className="alert alert-danger";
+				document.getElementById("alert-box").style.visibility = "visible";
+				$('#alert-box').fadeIn('slow').delay(2000);
+				$('#alert-box').fadeOut('slow').delay(2000);
+			}
+		}	
+	});
+	return false;
+});
+
+var form2 = $('#form2');
+form2.submit(function () {
+	$.ajax({
+		type: form2.attr('method'),
+		url: form2.attr('action'),
+		data: form2.serialize(),
+		success: function (data) {
+			console.log(data);
+			if(data=="true"){
+				document.getElementById("alert-box").innerHTML="Successfully Registered";
+				document.getElementById("alert-box").className="alert alert-success";
+				document.getElementById("alert-box").style.visibility = "visible";
+				$('#alert-box').fadeIn('slow').delay(2000);
+				$('#alert-box').fadeOut('slow').delay(2000);
+			}
+			else{
+				document.getElementById("alert-box").innerHTML="Check feilds";
+				document.getElementById("alert-box").className="alert alert-danger";
+				document.getElementById("alert-box").style.visibility = "visible";
+				$('#alert-box').fadeIn('slow').delay(2000);
+				$('#alert-box').fadeOut('slow').delay(2000);
+			}
+			}	
+	});
+return false;
+});
+
+$.ajax({
+	type: 'get',
+	url: '/adminGetIndexPageData',
+	success: function (data) {
+		data=JSON.parse(data);
+		if(data.email)
+			$("#adminEmail").html(data.email);
+		if(data.phone)
+			$("#adminPhone").html(data.phone);
+
+	}
+});
+
+$( "#toggleSign" ).click(function() {
+  if($("#buttonText").html()=="Already Registered"){
+  	$("#form2").fadeOut(300).promise().done(function(){
+    	$("#form1").fadeIn(300);
+ 	});
+ 	$("#sign").fadeOut(300).promise().done(function(){
+ 		$("#sign").html("Sign In");
+ 		$("#sign").fadeIn(300);
+ 	});
+ 	$("#buttonText").fadeOut(300).promise().done(function(){
+ 		$("#buttonText").html("Get Registered");
+ 		$("#buttonText").fadeIn(300);
+ 	});
+  }
+  else{
+  	$('#form1').fadeOut(300).promise().done(function(){
+     	$("#form2").fadeIn(300);
+ 	});
+  	$("#sign").fadeOut(300).promise().done(function(){
+ 		$("#sign").html("Sign Up");
+ 		$("#sign").fadeIn(300);
+ 	});
+ 	$("#buttonText").fadeOut(300).promise().done(function(){
+ 		$("#buttonText").html("Already Registered");
+ 		$("#buttonText").fadeIn(300);
+ 	});
+	}
+});
+
+</script>

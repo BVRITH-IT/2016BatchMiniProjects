@@ -1,0 +1,642 @@
+<html>
+<head>
+	<title>DashBoard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Acme|Rubik:400,700&display=swap" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Source+Sans+Pro|Special+Elite" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+	<style>
+		.fontAudiowide{
+			font-family: 'Audiowide', cursive;
+		}
+		.fontSpecialElite{
+			font-family: 'Special Elite', cursive;
+		}
+		.fontSourceSansPro{
+			font-family: 'Source Sans Pro', sans-serif;
+			color:grey;
+		}
+		.fontRubik{
+			font-family: 'Rubik', sans-serif;
+		}
+		.fontAcme{
+			font-family: 'Acme', sans-serif;
+		}
+		a[name='dashBoardButtons']:hover{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="w3-sidebar w3-bar-block w3-white w3-center w3-animate-left" style="width:20%"> 
+		<h3 class="w3-bar-item w3-center fontRubik w3-border-bottom w3-black w3-border-grey w3-opacity" style="margin-bottom:0;">DashBoard</h3>
+	  	<a href="#lodgeDiv" class="w3-bar-item w3-button w3-padding-small w3-hover-orange" id="lodgeButton" name="dashBoardButtons"><h1><i class="fa fa-wrench" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAcme">Lodge</h6></a>
+	  	<a href="#historyDiv" class="w3-bar-item w3-button w3-padding-small w3-hover-orange"  id="historyButton" name="dashBoardButtons"><h1><i class="fa fa-history" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAcme">History</h6></a>
+	  	<a href="#infoDiv" class="w3-bar-item w3-button w3-hover-orange w3-border-white"  id="infoButton" name="dashBoardButtons"><h1><i class="fa fa-info" aria-hidden="true"></i></h1><h6 class="fontAudiowide">Info</h6></a>
+	  	<a class="w3-bar-item w3-button w3-padding-small w3-hover-orange"  id="logoutButton" name="dashBoardButtons"><h1><i class="fa fa-sign-out" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAcme">Log Out</h6></a>
+	</div>
+
+<!-- //////////////////////////////////// LODGE/////////////////////////////////// --> 
+
+	<div class="w3-flat-clouds w3-display-container" style="margin-left:20%;min-height:100vh;" id="lodgeDiv" name="commonDivName">
+		<div class="w3-display-middle" style="width:70%;">
+			<div class="w3-white">
+				<header class="w3-container w3-orange w3-flat-belize-hole">
+				  <h2 class="fontSourceSansPro w3-text-white" >Lodge a complaint</h2>
+				</header>
+				<div class="w3-container fontSourceSansPro">
+					<form id="lodgeForm" name="lodgeForm" method="post" action="/userLodge">
+						<input id="student_id" name="student_id" value="" style="display:none;">
+						<div class="w3-row w3-section">
+						  	<div class="w3-col m2 s4"><i class="w3-xxlarge fa fa-list-ul"></i></div>
+						    <div class="w3-rest">
+						    	<select class="w3-select fontSourceSansPro" style="background-color: white;" name="type" id="type" required>
+							    	<option value="" disabled selected>Choose your complaint type</option>
+								    <option>hostel</option>
+								    <option>personnel</option>
+							   	</select>
+						    </div>
+						</div>
+						<div class="w3-row w3-section">
+						  	<div class="w3-col m2 s4"><i class="w3-xxlarge fa fa-lightbulb-o"></i></div>
+						    <div class="w3-rest">
+						    	<select class="w3-select fontSourceSansPro" style="background-color: white;" id="equipment" name="subject" required>
+							    	<option value="" disabled selected>Choose Equipment</option>
+							   	</select>
+						    </div>
+						</div>
+						<div class="w3-row w3-section">
+						  	<div class="w3-col m2 s4"><i class="w3-xxlarge fa fa-user-o"></i></div>
+						    <div class="w3-rest">
+						    	<input class="w3-input fontSourceSansPro" id="assistance" style="background-color:transparent;" value="None" readonly name="category" required>
+						    </div>
+						</div>
+						<div class="w3-row w3-section">
+						  	<div class="w3-col m2 s4"><i class="w3-xxlarge fa fa-clock-o"></i></div>
+						  	<div class="w3-rest">
+							    <select class="w3-select  fontSourceSansPro" style="background-color: white;" id="slot" name="time_slot" required>
+								    <option>10:00-12:00</option>
+								    <option>13:00-15:00</option>
+								    <option>16:00-18:00</option>
+								</select>
+							</div>
+						</div>
+						<div class="w3-row w3-section">
+						  	<div class="w3-col m2 s4"><i class="w3-xxlarge fa fa-pencil"></i></div>
+						  	<div class="w3-rest">
+							    <select class="w3-select  fontSourceSansPro" style="background-color: white;" id="assistance" name="description" required>
+								    <option>Broken</option>
+								    <option>Replace</option>
+								    <option>Bolt and Latch</option>
+								    <option>Electric Fault</option>
+								    <option>Others</option>
+								</select>
+							</div>
+						</div>
+						<div class="w3-row w3-section">
+						  	<div class="w3-col m2 s4"><i class="w3-xxlarge fa fa-commenting-o"></i></div>
+						  	<div class="w3-rest">
+							    <textarea  class="w3-input fontSourceSansPro" name="descriptionFull" placeholder="Tell us more about the problem"></textarea>
+							</div>
+						</div>
+						<div class="w3-center ">
+						<input type="submit" id="submitLodge" class="w3-button w3-flat-belize-hole w3-hover-blue" style="margin-top:2em;" value="Lodge">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ////////////////////////////// History ////////////////////////-->
+
+	<div class="w3-flat-clouds w3-display-container" style="margin-left:20%;height:100vh;max-height:100vh;overflow-y: scroll;" id="historyDiv" name="commonDivName">
+		<div class="w3-center" style="width:80%;margin:0 auto;">
+			<header class="w3-container w3-orange w3-flat-belize-hole">
+				 <h2 class="fontSourceSansPro w3-text-white">History
+				 	<span>
+				 		<h2 style="display:inline;">
+					 		<select class="fontSourceSansPro" style="background-color: #F39C12;color:white;border:0px" name="type" id="historySelectType" onchange="document.getElementById('historyButton').click();">
+						    	<option value="-1">All</option>
+						    	<option value="0">Lodged</option>
+						    	<option value="1">Progress</option>
+						    	<option value="2">Solved</option>
+						    	<option value="3">Closed</option>
+						  	</select>
+					  	</h2>
+				 	</span>
+				 </h2>
+			</header>
+		</div>
+		<div id="historyDivChild" style="width:80%;margin:0 auto;">
+			
+		</div>
+	</div>
+
+	<!-- ////////////////////////////// Info ////////////////////////-->
+
+	<div class="w3-flat-clouds w3-display-container" style="margin-left:20%;height:100vh;" id="infoDiv" name="commonDivName">
+		<div class="w3-display-middle" style="width:70%;">
+			<div class="w3-white ">
+				<header class="w3-container w3-orange w3-flat-belize-hole">
+				  <h2 class="fontSourceSansPro w3-text-white" >Welcome <span id="userName">Anubhav</span>
+				  	<span id="changePass"><h6 style="display:inline;"><button class="w3-btn w3-right w3-hover-blue w3-border-white w3-border" id="changeInfo" onclick="$('#changeInfoModal').css('display','block');">Change Info</button></h6></span></h2>
+				</header>
+				<div class="w3-container fontSourceSansPro">
+					<h2><span class="fa fa-user-o w3-col m2 s4"></span></h2><h3><span id="actype" class="w3-rest"></span></h3>
+					<h2><span class="fa fa-home w3-col m2 s4"></span></h2><h3><span id="hostel" class="w3-rest"> </span></h3>
+					<h2><span class="fa fa-sort-numeric-asc w3-col m2 s4"></span></h2><h3><span id="rollno" class="w3-rest"></span></h3>
+					<h2><span class="fa fa-envelope-o w3-col m2 s4"></span></h2><h3><span id="email" class="w3-rest"></span></h3>
+					<h2><span class="fa fa-phone w3-col m2 s4"></span></h2><h3><span id="mobile" class="w3-rest"></span></h3>
+				</div>
+			</div>
+			<div class="w3-margin-top">
+			<div class="w3-third w3-light-grey">
+				<header style="text-align: center;" class="fontSourceSansPro">
+					<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+					<span id="complaintsRegistered">5</span>
+					<h5 style="padding:0;margin:0;">Registered</h5></span>
+				</header>
+			</div>
+			<div class="w3-third w3-light-grey">
+				<header style="text-align: center;" class="fontSourceSansPro">
+					<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+					<span id="complaintsSolved">4</span>
+					<h5 style="padding:0;margin:0;">Completed</h5></span>
+				</header>
+			</div>
+			<div class="w3-third w3-light-grey">
+				<header style="text-align: center;" class="fontSourceSansPro">
+					<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+					<span id="complaintsPending">1</span>
+					<h5 style="padding:0;margin:0;">Pending</h5></span>
+				</header>
+			</div>
+			</div>
+		</div>
+	</div>
+
+	  <div id="id01" class="w3-modal w3-card-4 w3-animate-zoom">
+	    <div class="w3-modal-content">
+		    <header class="w3-flat-belize-hole w3-container">
+		        <span onclick="closeModal('id01');" class="w3-button w3-display-topright w3-hover-blue">&times;</span>
+				<h2 class="fontSourceSansPro w3-text-white" >Service Feedback</h2>
+			</header>
+		    <div class="w3-container w3-padding-16">
+		        <div class="w3-center w3-container w3-large" style="margin:5px 0;">
+			     	<i class="fa fa-star-o w3-text-blue" name="star1"  aria-hidden="true"></i>
+			     	<i class="fa fa-star-o w3-text-blue" name="star2"  aria-hidden="true"></i>
+			     	<i class="fa fa-star-o w3-text-blue" name="star3"  aria-hidden="true"></i>
+			     	<i class="fa fa-star-o w3-text-blue" name="star4"  aria-hidden="true"></i>
+			     	<i class="fa fa-star-o w3-text-blue" name="star5"  aria-hidden="true"></i>
+			    </div>
+			    <input style="display:none;" id="rating" name="rating" value="0">
+			    <input style="display:none;" id="feedbackComplaintId" name="complaint_id" >
+			    <div class="w3-container fontSourceSansPro">
+			     	<textarea id="review" class="w3-input fontSourceSansPro" style="width:70%;margin:0 auto;" placeholder="Write a review" maxlength="100"></textarea>
+			    </div> 
+		    </div>
+		    <footer class="w3-flat-belize-hole w3-container">
+				<button class="w3-button w3-right w3-padding-16 w3-hover-blue" id="feedbackSubmit">Submit</button>
+			</footer>
+	    </div>
+	  </div>
+
+<!-- /////////////////////////////////////////// Change Info Modal ////////////////////////////////////////// -->
+
+	  <div id="changeInfoModal" class="w3-modal w3-card-4 w3-animate-zoom">
+	    <div class="w3-modal-content">
+		    <header class="w3-flat-belize-hole w3-container">
+		        <span onclick="closeModal('changeInfoModal');" class="w3-button w3-display-topright w3-hover-blue">&times;</span>
+				<h2 class="fontSourceSansPro w3-text-white" >Change Info</h2>
+			</header>
+		    <div class="w3-container w3-padding-16 w3-center">
+		        <div class=" w3-container" style="margin:5px auto;width:50%;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="old_pass" type="password" 	 val="" placeholder="Old Password" style="margin:5px;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="new_pass" type="password" value="" 	 placeholder="New Password" style="margin:5px;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="new_re_pass" type="password" val="" 	 placeholder="Re-Enter New Password" style="margin:5px;">
+			     	<input class="w3-button w3-hover-blue w3-flat-belize-hole" id="changeInfoButton" type="button" value="Change Password" style="margin:5px;">
+			    </div>
+		    </div>
+
+		     <div class="w3-container w3-padding-16 w3-center">
+		        <div class=" w3-container" style="margin:5px auto;width:50%;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="new_phone_no" type="number"  val="" placeholder="Phone_no" style="margin:5px;">
+			     	<input class="w3-button w3-hover-blue w3-flat-belize-hole" id="changePhoneButton" type="button" value="Update Phone no" style="margin:5px;">
+			    </div>
+		    </div>
+	    </div>
+	  </div>
+</body>
+<script>
+//console.log(sessionStorage);
+$('[name="dashBoardButtons"]').click(function(){
+	$('[name="dashBoardButtons"]').removeClass('w3-border-light-grey w3-rightbar w3-flat-belize-hole');
+	$(this).addClass('w3-border-light-grey w3-rightbar w3-flat-belize-hole');
+	$('[name="commonDivName"]').addClass('w3-hide');
+	$('[name="commonDivName"]').removeClass('w3-animate-zoom');
+	$($(this).attr('href')).removeClass('w3-hide').addClass('w3-animate-zoom');
+});
+
+$('#lodgeButton').addClass('w3-border-light-grey w3-rightbar w3-flat-belize-hole');
+$('[name="commonDivName"]').addClass('w3-hide');
+$('[name="commonDivName"]').removeClass('w3-animate-zoom');
+$('#historyDiv').removeClass('w3-hide').addClass('w3-animate-zoom');
+
+$("#feedbackSubmit").click(function(){
+	$.ajax({
+		type: 'get',
+		url: '/userFeedback',
+		data: { 
+        "rating": $("#rating").val(),
+        "review": $("#review").val(),
+        "id":$("#feedbackComplaintId").val()
+    	},
+		success: function (data) {
+			if(data=="true"){
+				$("#feedbackSubmit").html("Thank You");
+				$("#feedbackSubmit").attr("disabled",true);
+				$("#historyButton").trigger("click");
+			}
+		}
+	});
+});
+
+$("[name^='star']").mouseover(function() {
+    var i=$(this).attr('name')[4];
+    for(var j=1;j<=i;j++){
+    	$("[name='star"+j+"']").removeClass();
+    	$("[name='star"+j+"']").attr("class","fa fa-star w3-text-blue");
+    	//console.log("sss "+j+"xxx "+i);
+
+    }
+    ////console.log("HERE "+j+" "+i);
+    for(var j=5;j>i;j--){
+    	$("[name='star"+j+"']").removeClass();
+    	$("[name='star"+j+"']").attr("class","fa fa-star-o w3-text-blue");
+    }
+    $("#rating").val(i);
+    //console.log($("#rating").val());
+});
+
+$("#historyButton").click(function(){
+	//console.log("yes");
+	$.ajax({
+		type: 'get',
+		url: '/userComplaintHistory',
+		data: { 
+        "student_id": $("#student_id").val(),
+        "type":$("#historySelectType").val()
+    	},
+		success: function (data) {
+			data=JSON.parse(data);
+			//console.log(data);
+			$("#historyDivChild").html("");
+			for(var i=0;i<data.length;++i){
+				createHistory(data[i]);
+			}
+		},
+		complete:function(){
+			$('[id^="feedback"]').click(function(){
+				$('#feedbackComplaintId').val($(this).attr("id").split("_")[1]);
+				$('#id01').css('display','block');
+			});
+			if($("#historyDivChild").html()==""){
+				$("#historyDivChild").append(
+					'<div style="width:90%" class="w3-display-middle"><h3 class="w3-center fontAudiowide w3-text-grey">NO HISTORY HERE</h3></div>'
+				);
+			}
+		}
+	});
+}); 
+
+var lodge = $('#lodgeForm');
+lodge.submit(function () {
+	$.ajax({
+		type: lodge.attr('method'),
+		url: lodge.attr('action'),
+		data: lodge.serialize(),
+		success: function (data) {
+			if(data=="true"){
+				// $("#container").fadeOut(function() {
+				//   $(this).text("World").fadeIn();
+				// });
+				$("#submitLodge").fadeOut("slow",function() {
+				  $(this).val("Registered");
+				  $(this).prop("disabled",true);
+				}).fadeIn("slow",function(){
+				});
+				setTimeout(function(){$("#submitLodge").fadeOut("slow",function(){
+					$(this).val("Lodge");
+					$(this).prop("disabled",false);
+				}).fadeIn("slow",function(){
+					var id=$("#student_id").val();
+					$('#lodgeForm')[0].reset();
+					$("#student_id").val(id);
+					$('#equipment option').remove();
+					$('#equipment').append('<option value="" disabled selected>Choose Equipment</option>');
+				})},5000);
+			}
+		}	
+	});
+	return false;
+});
+
+$(document).ready(function(){
+	$('#infoButton').trigger('click');
+});
+
+$("#infoButton").click(function(){
+ 	$.ajax({
+		type: 'get',
+		url: '/getData',
+		data:{
+			'email':sessionStorage.email,
+			'type':sessionStorage.type
+		},
+		success: function (data) {
+			//console.log(data);
+			if(data=="false")
+				window.location.href = "./";
+			else{
+				var value=JSON.parse(data);
+				//console.log(value);
+				$("#userName").html("&nbsp;&nbsp;&nbsp;&nbsp;"+value[0].name);
+				
+				$("#student_id").val(value[0].student_id);
+				////console.log("aaa "+$("#student_id").val());
+				$("#actype").html("&nbsp;&nbsp; Student");
+				$("#hostel").html("&nbsp;&nbsp; "+value[0].gender+" "+value[0].room_no);
+				$("#hostelParent").css("display","block");
+				$("#rollno").html("&nbsp;&nbsp; "+value[0].roll_no);
+				$("#rollnoParent").css("display","block");
+				
+				$("#email").html("&nbsp;&nbsp; "+value[0].email);
+				$("#mobile").html("&nbsp;&nbsp; "+value[0].phone_no);
+			}
+		},
+		complete:function(data){
+			$.ajax({
+				type:'get',
+				url:'/userComplaintAnalytics',
+				data:{
+					'student_id':$('#student_id').val()
+				},
+				success:function(data){
+					data=JSON.parse(data);
+					//console.log(data);
+					if(data!="false"){
+						$("#complaintsRegistered").html(data[0].total);
+						if(data.length>1){
+							$("#complaintsSolved").html(data[1].total);
+							$("#complaintsPending").html(data[0].total-data[1].total);
+						}
+						else{
+							$("#complaintsSolved").html(data[0].total);
+							$("#complaintsPending").html(0);
+						}
+					}
+				}
+			});
+		}	
+	});
+});
+
+var values={};
+$( "#type" ).change(function() {
+  	$.ajax({
+		type: 'get',
+		url: '/complaintHandymanType',
+		data: { 
+        "type": $("#type").val()
+    	},
+		success: function(data){
+			data=JSON.parse(data);
+			values={};
+			for(var i=0;i<data.length;++i){
+				var temp=data[i].equipment;
+				values[temp]=data[i].handman;
+			}
+			$('#equipment option').remove();
+			$.each(values, function (i, items) {
+			    $('#equipment').append($('<option>', {
+			        text : i 
+			    }));  
+			});
+			$("#assistance").val(values[$("#equipment").val()]);
+		}
+	});
+});
+
+$('#changeInfoButton').click(function(){
+	var passw=  /[^A-Za-z0-9!@_]/;  
+	if($("#old_pass").val().match(passw)||$("#new_pass").val().match(passw))   
+	{   
+		alert("A-Z a-z 0-9 and !@_ are allowed");
+		return false;
+	}  
+	else if($("#old_pass").val().length>15||$("#old_pass").val().length<7||$("#new_pass").val().length>15||$("#new_pass").val().length<7) 
+	{   
+		alert("password length must be between 7-15");
+		return false;
+	}
+	else if($("#new_pass").val()!=$("#new_re_pass").val())
+	{   
+		alert("Re-Enter password wrong");
+		return false;
+	}
+	$.ajax({
+		type:'get',
+		url:'/changeStudentPass',
+		data:{
+			"student_id":$("#student_id").val(),
+			"old_Pass":$("#old_pass").val(),
+			"new_Pass":$("#new_pass").val()
+		},
+		success:function(data){
+			if(data=="old"){
+				alert("Wrong Old Password");
+				return false;
+			}
+			if(data=="false"){
+				alert("Something went wrong, Try Again");
+				return false;
+			}
+			else
+			{
+				alert("updated Successfully");
+				$("#old_pass").val("");
+				$("#new_pass").val("");
+				$("#new_re_pass").val("");
+				$("#new_phone_no").val("");
+				return true;
+			}
+			
+		}
+	});
+});
+
+$("#changePhoneButton").click(function(){
+	if($("#new_phone_no").val().length!=10){
+		alert("Must be of 10 digit");
+		return false;
+	}
+	$.ajax({
+		type:'get',
+		url:'/changeStudentPhone',
+		data:{
+			"student_id":$("#student_id").val(),
+			"new_phone":$("#new_phone_no").val(),
+		},
+		success:function(data){
+			if(data=="false"){
+				alert("Something went wrong, Try Again");
+				return false;
+			}
+			else
+			{
+				alert("updated Successfully");
+				$("#old_pass").val("");
+				$("#new_pass").val("");
+				$("#new_re_pass").val("");
+				$("#new_phone_no").val("");
+				return true;
+			}
+		}
+	});
+})
+
+
+$('#logoutButton').click(function(){
+	$.ajax({
+		type: 'get',
+		url: '/logout',
+		success: function(data){
+			if(data=="true"){
+				window.location.href="./";
+			}
+		}
+	});
+});
+
+$( "#equipment" ).change(function(){
+	$("#assistance").val(values[$(this).val()]);
+});
+
+	function closeModal(data){
+		document.getElementById(data).style.display='none';
+		$("#feedbackSubmit").html("Submit");
+		$("#feedbackSubmit").attr("disabled",false);
+		$("[name^='star']").removeClass();
+		$("[name^='star']").attr("class","fa fa-star-o w3-text-blue");
+		$("#review").val("");
+	}
+
+	function closeChangeModal(data){
+		document.getElementById(data).style.display='none';
+		$("#old_pass").val("");
+		$("#new_pass").val("");
+		$("#new_re_pass").val("");
+	}
+
+	function createHistory(data){
+		if(data.status==0){
+			data.status="Lodged";
+		}
+		if(data.status==1){
+			data.status="In progress";
+		}
+		if(data.status==2){
+			data.status="Solved";
+		}
+		if(data.status==3){
+			data.status="Closed";
+		}
+
+		$('#historyDivChild').append(
+		'<div class=" w3-panel w3-white" id="panel_'+data.complaint_id+'">'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-calendar w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Date: &nbsp;</b></span><span> '+data.date.split("T")[0]+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-clock-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><h6><span><b>Time: &nbsp;</b></span><span >'+data.date.split("T")[1].split(".")[0]+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-lightbulb-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Equipment: &nbsp;</b></span><span > '+data.subject+'</span></h6>'+
+				'</div>'+
+			'</div>'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-id-badge w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>C_Id: &nbsp;</b></span><span ><span class="w3-rest"> '+data.complaint_id+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-list-ul w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Type: &nbsp;</b></span><span ><span class="w3-rest"> '+data.type+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-user-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Assistance: &nbsp;</b></span><span ><span class="w3-rest"> '+data.catagory+'</span></h6>'+
+				'</div>'+
+			'</div>'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-clock-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Slot: &nbsp;</b></span><span ><span class="w3-rest"> '+data.time_slot+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-inr w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Cost: &nbsp;</b></span><span ><span class="w3-rest"> '+data.cost+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro w3-dropdown-hover">'+
+					'<h5><span class="fa fa-pencil w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Description: &nbsp;</b></span><span ><span class="w3-rest"> '+data.description+'</span></h6>'+
+					'<div class="w3-dropdown-content w3-card-4" >'+
+				      '<div class="w3-container">'+
+				        '<p>'+data.descriptionFull+'</p>'+
+				      '</div>'+
+				    '</div>'+
+				'</div>'+
+			'</div>'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-key w3-col m1 s3 w3-hide-small w3-hide-medium"> </span></h5><h6><span> <b>OTP : &nbsp;&nbsp;</b></span><span ><span class="w3-rest"> '+data.otp+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-spinner w3-col m1 s3 w3-hide-small w3-hide-medium"> </span></h5><h6><span> <b>Status : &nbsp;</b></span><span ><span class="w3-rest"> '+data.status+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro w3-dropdown-hover">'+
+					'<h5><span class="fa fa-male w3-col m1 s3 w3-hide-small w3-hide-medium"> </span></h5><h6><span><b> HandyMan: </b></span><span ><span class="w3-rest"> '+data.name+'</span></h6>'+
+					'<div class="w3-dropdown-content w3-card-4" >'+
+				      '<div class="w3-container">'+
+				        '<p>'+data.phone_no+'</p>'+
+				        '<p>'+data.email+'</p>'+
+				      '</div>'+
+				    '</div>'+
+				'</div>'+
+				
+			'</div>'+
+			'<div class="w3-right ">'+
+				'<input type="button" id="feedback_'+data.complaint_id+'" class="w3-button w3-flat-belize-hole w3-hover-blue" style="margin-bottom:10px;display:none" value="Feedback">'+
+			'</div>'+
+		'</div>');
+		if(data.status=="Solved"){
+			$('#feedback_'+data.complaint_id).css('display','block');
+			$('#panel_'+data.complaint_id).addClass('w3-border-blue w3-leftbar w3-pale-blue');
+		}
+		if(data.status=="In progress"){
+			$('#panel_'+data.complaint_id).addClass('w3-border-yellow w3-leftbar w3-pale-yellow');
+		}
+		if(data.status=="Lodged"){
+			$('#panel_'+data.complaint_id).addClass('w3-border-red w3-leftbar w3-pale-red');
+		}
+		if(data.status=="Closed"){
+			$('#panel_'+data.complaint_id).addClass('w3-border-green w3-leftbar w3-pale-green');
+		}
+	}
+
+</script>
+</html>

@@ -1,0 +1,550 @@
+<html>
+<head>
+	<title>DashBoard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Acme|Rubik:400,700&display=swap" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Source+Sans+Pro|Special+Elite" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+	<style>
+		.fontAudiowide{
+			font-family: 'Audiowide', cursive;
+		}
+		.fontSpecialElite{
+			font-family: 'Special Elite', cursive;
+		}
+		.fontSourceSansPro{
+			font-family: 'Source Sans Pro', sans-serif;
+			color:grey;
+		}
+		.fontRubik{
+			font-family: 'Rubik', sans-serif;
+		}
+		.fontAcme{
+			font-family: 'Acme', sans-serif;
+		}
+		a[name='dashBoardButtons']:hover{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="w3-sidebar w3-bar-block w3-white w3-center w3-animate-left" style="width:20%"> 
+		<h3 class="w3-bar-item w3-center fontRubik w3-border-bottom w3-black w3-border-grey w3-opacity" style="margin-bottom:0;">DashBoard</h3>
+	  	<a href="#workDiv" class="w3-bar-item w3-button w3-padding-small w3-hover-orange" id="workButton" name="dashBoardButtons"><h1><i class="fa fa-briefcase" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAcme">Work</h6></a>
+	  	<!-- <a href="#" class="w3-bar-item w3-button w3-padding-small w3-hover-blue" id="progressButton" name="dashBoardButtons"><h1><i class="fa fa-tasks" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAudiowide">Progress</h6></a>-->
+	  	<a href="#historyDiv" class="w3-bar-item w3-button w3-padding-small w3-hover-orange"  id="historyButton" name="dashBoardButtons"><h1><i class="fa fa-history" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAcme">History</h6></a>
+	  	<a href="#infoDiv" class="w3-bar-item w3-button w3-hover-orange w3-border-white"  id="infoButton" name="dashBoardButtons"><h1><i class="fa fa-info" aria-hidden="true"></i></h1><h6 class="fontAudiowide">Info</h6></a>  
+	  	<a class="w3-bar-item w3-button w3-padding-small w3-hover-orange"  id="logoutButton" name="dashBoardButtons"><h1><i class="fa fa-sign-out" aria-hidden="true"></i></h1>
+	  	<h6 class="fontAcme">Log Out</h6></a>
+	</div>
+
+<!-- //////////////////////////////////// ASSIGN FORM/////////////////////////////////// --> 
+
+	<div class="w3-flat-clouds w3-display-container" style="margin-left:20%;min-height:100vh;overflow-y: scroll;" id="workDiv" name="commonDivName">
+		<div style="width:90%;margin:0 auto;" class="w3-center">
+			<header class="w3-container w3-orange w3-flat-belize-hole">
+			  <h2 class="fontSourceSansPro w3-center w3-text-white" >Today's Work</h2>
+			</header>
+		</div>
+		<div style="width:90%;margin:0 auto;">
+			<div class="fontSourceSansPro w3-margin-top">
+				<div class="w3-center">
+					<header class="w3-container w3-tag w3-center w3-flat-belize-hole w3-margin-top">
+					  	<h5 class="fontSourceSansPro w3-center w3-text-white" >10:00-12:00</h5>
+					</header>
+				</div>
+				<div id="workDivChildSlot1" class="w3-margin-top">
+					
+				</div>
+
+				<div class="w3-center">
+					<header class="w3-container w3-tag w3-center w3-flat-belize-hole">
+					  	<h5 class="fontSourceSansPro w3-center w3-text-white" >13:00-15:00</h5>
+					</header>
+				</div>
+				<div id="workDivChildSlot2" class="w3-margin-top">	
+					
+				</div>
+
+				<div class="w3-center">
+					<header class="w3-container w3-tag w3-center w3-flat-belize-hole">
+					  	<h5 class="fontSourceSansPro w3-center w3-text-white" >16:00-18:00</h5>
+					</header>
+				</div>
+				<div id="workDivChildSlot3" class="w3-margin-top">
+					
+				</div>
+			</div>
+		</div>
+		<div id="id01" class="w3-modal w3-card-4" style="background-color: rgba(0,0,0,0);">
+		    <div class="w3-modal-content w3-center w3-animate-right" style="background-color: rgba(0,0,0,0);">
+		        
+			    <div class="w3-container w3-padding-16 w3-bar" style="background-color: rgba(0,0,0,0.5);">
+				    <input style="display:none;" id="otp_id" name="otp_id" value="0">
+				    <div class="w3-bar-item"><input class="w3-input" id="otp_value" name="otp_value" type="number"></div>
+				    <div class="w3-bar-item"><button class="w3-button w3-right w3-hover-green w3-flat-emerald" id="otpSolved" type="submit">Submit</button></div>
+			    </div>
+		    </div>
+		</div>
+		</div>
+	</div>
+
+	<!-- ////////////////////////////// History ////////////////////////-->
+
+	<div class="w3-flat-clouds w3-display-container" style="margin-left:20%;height:100vh;max-height:100vh;overflow-y: scroll;" id="historyDiv" name="commonDivName">
+		<div class="w3-center" style="width:80%;margin:0 auto;">
+			<header class="w3-container w3-orange w3-flat-belize-hole">
+				 <h2 class="fontSourceSansPro w3-text-white">History
+				 	<span>
+				 		<h2 style="display:inline;">
+					 		<select class="fontSourceSansPro" style="background-color: #F39C12;color:white;border:0px" name="type" id="historySelectType" onchange="document.getElementById('historyButton').click();">
+						    	<option value="All">All</option>
+						    	<option value="Solved">Solved</option>
+						    	<option value="Unsolved">Unsolved</option>
+						  	</select>
+					  	</h2>
+				 	</span>
+				 </h2>
+			</header>
+		</div>
+		<div id="historyDivChild" style="width:80%;margin:0 auto;">
+			
+		</div>
+	</div>
+
+	<!-- ////////////////////////////// Info ////////////////////////-->
+
+	<div class="w3-flat-clouds" style="margin-left:20%;height:100vh;" id="infoDiv" name="commonDivName">
+		<div style="width:80%;margin:0 auto;">
+			<div class="w3-white ">
+				<header class="w3-container w3-orange w3-flat-belize-hole">
+				  <h2 class="fontSourceSansPro w3-text-white" >Welcome <span id="userName"></span><span id="changePass"><h6 style="display:inline;"><button class="w3-btn w3-right w3-hover-blue w3-border-white w3-border" id="changeInfo" onclick="$('#changeInfoModal').css('display','block');">Change Info</button></h6></span></h2>
+				</header>
+				<div class="w3-container fontSourceSansPro">
+					<input style="display:none;" val="" id="handyman_id">
+					<h2><span class="fa fa-user-o w3-col m2 s4"></span></h2><h3><span id="actype" class="w3-rest"> </span></h3>
+					<h2><span class="fa fa-wrench w3-col m2 s4"></span></h2><h3><span id="catagory" class="w3-rest"> </span></h3>
+					<h2><span class="fa fa-envelope-o w3-col m2 s4"></span></h2><h3><span id="email" class="w3-rest"></span></h3>
+					<h2><span class="fa fa-phone w3-col m2 s4"></span></h2><h3><span id="mobile" class="w3-rest"></span></h3>
+				</div>
+			</div>
+
+			<div class="w3-section w3-row">
+				<div class="w3-center">
+					<header class="w3-container w3-center w3-flat-belize-hole">
+					  	<h5 class="fontSourceSansPro w3-center w3-text-white" >Today's Analysis</h5>
+					</header>
+				</div>
+				<div class="w3-third w3-light-grey">
+					<header style="text-align: center;" class="fontSourceSansPro">
+						<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+						<span id="todayComplaintsRegistered">NA</span>
+						<h5 style="padding:0;margin:0;">Registered</h5></span>
+					</header>
+				</div>
+				<div class="w3-third w3-light-grey">
+					<header style="text-align: center;" class="fontSourceSansPro">
+						<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+						<span id="todayComplaintsSolved">NA</span>
+						<h5 style="padding:0;margin:0;">Completed</h5></span>
+					</header>
+				</div>
+				<div class="w3-third w3-light-grey w3-margin-bottom">
+					<header style="text-align: center;" class="fontSourceSansPro">
+						<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+						<span id="todayComplaintsPending">NA</span>
+						<h5 style="padding:0;margin:0;">Pending</h5></span>
+					</header>
+				</div>
+			</div>
+
+			<div class="w3-section">
+				<div class="w3-center">
+					<header class="w3-container w3-center w3-flat-belize-hole">
+					  	<h5 class="fontSourceSansPro w3-center w3-text-white" >Overall Analysis</h5>
+					</header>
+				</div>
+				<div class="w3-third w3-light-grey">
+					<header style="text-align: center;" class="fontSourceSansPro">
+						<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+						<span id="complaintsRegistered">NA</span>
+						<h5 style="padding:0;margin:0;">Registered</h5></span>
+					</header>
+				</div>
+				<div class="w3-third w3-light-grey">
+					<header style="text-align: center;" class="fontSourceSansPro">
+						<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+						<span id="complaintsSolved">NA</span>
+						<h5 style="padding:0;margin:0;">Completed</h5></span>
+					</header>
+				</div>
+				<div class="w3-third w3-light-grey w3-margin-bottom">
+					<header style="text-align: center;" class="fontSourceSansPro">
+						<span class="w3-border-bottom w3-border-blue w3-tag w3-jumbo w3-flat-belize-hole w3-padding-large">
+						<span id="complaintsPending">NA</span>
+						<h5 style="padding:0;margin:0;">Unattended</h5></span>
+					</header>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- /////////////////////////////////////////// Change Info Modal ////////////////////////////////////////// -->
+
+	  <div id="changeInfoModal" class="w3-modal w3-card-4 w3-animate-zoom">
+	    <div class="w3-modal-content">
+		    <header class="w3-flat-belize-hole w3-container">
+		        <span onclick="closeModal('changeInfoModal');" class="w3-button w3-display-topright w3-hover-blue">&times;</span>
+				<h2 class="fontSourceSansPro w3-text-white" >Change Info</h2>
+			</header>
+		    <div class="w3-container w3-padding-16 w3-center">
+		        <div class=" w3-container" style="margin:5px auto;width:50%;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="old_pass" type="password" 	 val="" placeholder="Old Password" style="margin:5px;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="new_pass" type="password" value="" 	 placeholder="New Password" style="margin:5px;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="new_re_pass" type="password" val="" 	 placeholder="Re-Enter New Password" style="margin:5px;">
+			     	<input class="w3-button w3-hover-blue w3-flat-belize-hole" id="changeInfoButton" type="button" value="Change Password" style="margin:5px;">
+			    </div>
+		    </div>
+
+		     <div class="w3-container w3-padding-16 w3-center">
+		        <div class=" w3-container" style="margin:5px auto;width:50%;">
+			     	<input class="w3-input w3-border fontSourceSansPro" id="new_phone_no" type="number"  val="" placeholder="Phone_no" style="margin:5px;">
+			     	<input class="w3-button w3-hover-blue w3-flat-belize-hole" id="changePhoneButton" type="button" value="Update Phone no" style="margin:5px;">
+			    </div>
+		    </div>
+	    </div>
+	  </div>
+	
+</body>
+<script>
+//console.log(sessionStorage.sess);
+$('[name="dashBoardButtons"]').click(function(){
+	$('[name="dashBoardButtons"]').removeClass('w3-border-light-grey w3-rightbar w3-flat-belize-hole');
+	$(this).addClass('w3-border-light-grey w3-rightbar w3-flat-belize-hole');
+	$('[name="commonDivName"]').addClass('w3-hide');
+	$('[name="commonDivName"]').removeClass('w3-animate-zoom');
+	$($(this).attr('href')).removeClass('w3-hide').addClass('w3-animate-zoom');
+});
+
+$('#infoButton').addClass('w3-border-light-grey w3-rightbar w3-flat-belize-hole');
+$('[name="commonDivName"]').addClass('w3-hide');
+$('[name="commonDivName"]').removeClass('w3-animate-zoom');
+$('#infoDiv').removeClass('w3-hide').addClass('w3-animate-zoom');
+
+
+$('#workButton').click(function(){
+	$.ajax({
+		type:'get',
+		url:'/handyManGetWork',
+		data:{
+			'handyman_id':$('#handyman_id').val()
+		},
+		success:function(data){
+			if(data=="false"){
+				return;
+			}
+			data=JSON.parse(data);
+			//console.log(data);
+			$('[id^="workDivChildSlot"]').html('');
+			for(i in data){
+				if(data[i].time_slot=="10:00-12:00")
+					createWork("workDivChildSlot1",data[i]);
+				else if(data[i].time_slot=="13:00-15:00")
+					createWork("workDivChildSlot2",data[i]);
+				else if(data[i].time_slot=="16:00-18:00")
+					createWork("workDivChildSlot3",data[i]);
+			}
+		},
+		complete:function(){
+			$('[id^="solved"]').click(function(){
+				$('#otp_id').val($(this).attr("id").split("_")[1]);
+				$('#id01').css('display','block');
+			});
+			for(var i=1;i<=3;++i)
+			if($("#workDivChildSlot"+String(i)).html()==""){
+				$("#workDivChildSlot"+String(i)).append(
+					'<div style="width:90%"><h4 class="w3-center fontAudiowide w3-text-grey">NO WORK TODAY IN THIS SLOT</h4></div>'
+				);
+			}
+		}
+	});
+});
+
+$(document).ready(function(){
+	$('#infoButton').trigger('click');
+});
+
+$("#infoButton").click(function(){
+ 	$.ajax({
+		type: 'get',
+		url: '/getData',
+		data:{
+			'email':sessionStorage.email,
+			'type':sessionStorage.type
+		},
+		success: function (data) {
+			//console.log(data);
+			if(data=="false")
+				window.location.href = "./";
+			else{
+				var value=JSON.parse(data);
+				//console.log(value);
+				$("#userName").html("&nbsp;&nbsp;&nbsp;&nbsp;"+value[0].name);
+				
+				$("#handyman_id").val(value[0].handyman_id);
+				////console.log("aaa "+$("#student_id").val());
+				$("#actype").html("&nbsp;&nbsp; HandyMan");
+				$("#catagory").html("&nbsp;&nbsp; "+value[0].Catagory);
+				
+				$("#email").html("&nbsp;&nbsp; "+value[0].email);
+				$("#mobile").html("&nbsp;&nbsp; "+value[0].phone_no);
+				$("#complaintsRegistered").html(value[0].issued);
+				$("#complaintsSolved").html(value[0].solved);
+				$("#complaintsPending").html(value[0].issued-value[0].solved);
+				var totalToday=value[0].slot1+value[0].slot2+value[0].slot3;
+				$("#todayComplaintsRegistered").html(totalToday);
+				$("#todayComplaintsSolved").html(value[0].today);
+				$("#todayComplaintsPending").html(totalToday-value[0].today);
+			}
+		}
+	});
+});
+
+$('#otpSolved').click(function(){
+	$.ajax({
+		url:'/handyManComplaintSolved',
+		type:'get',
+		timeout:5000,
+		data:{
+			'otp':$('#otp_value').val(),
+			'complaint_id':$('#otp_id').val(),
+			'handyman_id':$("#handyman_id").val()
+		},
+		success:function(data){
+			//console.log(data);
+			if(data=="false"){
+				alert("Try Again");
+			}
+			else if(data=="Wrong OTP"){
+				alert("Wrong OTP");
+			}
+			else{
+				$("#workButton").trigger("click");
+				modal.style.display = "none";
+    			$('#otp_value').val("");
+			}
+		},
+		error: function(jqXHR, textStatus){
+	        if(textStatus === 'timeout')
+	        {     
+	             alert('TimeOut Try Again');         
+	        }
+	    }
+	});
+});
+
+$('#changeInfoButton').click(function(){
+	var passw=  /[^A-Za-z0-9!@_]/;  
+	if($("#old_pass").val().match(passw)||$("#new_pass").val().match(passw))   
+	{   
+		alert("A-Z a-z 0-9 and !@_ are allowed");
+		return false;
+	}  
+	else if($("#old_pass").val().length>15||$("#old_pass").val().length<7||$("#new_pass").val().length>15||$("#new_pass").val().length<7) 
+	{   
+		alert("password length must be between 7-15");
+		return false;
+	}
+	else if($("#new_pass").val()!=$("#new_re_pass").val())
+	{   
+		alert("Re-Enter password wrong");
+		return false;
+	}
+	$.ajax({
+		type:'get',
+		url:'/changeHandymanPass',
+		data:{
+			"handyman_id":$("#handyman_id").val(),
+			"old_Pass":$("#old_pass").val(),
+			"new_Pass":$("#new_pass").val()
+		},
+		success:function(data){
+			if(data=="old"){
+				alert("Wrong Old Password");
+				return false;
+			}
+			if(data=="false"){
+				alert("Something went wrong, Try Again");
+				return false;
+			}
+			else
+			{
+				alert("updated Successfully");
+				$("#old_pass").val("");
+				$("#new_pass").val("");
+				$("#new_re_pass").val("");
+				$("#new_phone_no").val("");
+				return true;
+			}
+			
+		}
+	});
+});
+
+$("#changePhoneButton").click(function(){
+	if($("#new_phone_no").val().length!=10){
+		alert("Must be of 10 digit");
+		return false;
+	}
+	$.ajax({
+		type:'get',
+		url:'/changeHandymanPhone',
+		data:{
+			"handyman_id":$("#handyman_id").val(),
+			"new_phone":$("#new_phone_no").val(),
+		},
+		success:function(data){
+			if(data=="false"){
+				alert("Something went wrong, Try Again");
+				return false;
+			}
+			else
+			{
+				alert("updated Successfully");
+				$("#old_pass").val("");
+				$("#new_pass").val("");
+				$("#new_re_pass").val("");
+				$("#new_phone_no").val("");
+				return true;
+			}
+		}
+	});
+})
+
+$('#logoutButton').click(function(){
+	$.ajax({
+		type: 'get',
+		url: '/logout',
+		success: function(data){
+			if(data=="true"){
+				window.location.href="./";
+			}
+		}
+	});
+});
+
+
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    $('#otp_value').val("");
+  }
+}
+
+function closeModal(data){
+	document.getElementById(data).style.display='none';
+	$("#otpSolved").html("Submit");
+	$("#otpSolved").attr("disabled",false);
+	$("#otp_id").val("");
+	$("#otp_value").val("");
+}
+
+
+$("#historyButton").click(function(){
+	//console.log($('#historySelectType').val());
+	$.ajax({
+		type: 'get',
+		url: '/handyManComplaintHistory',
+		data:{
+			'handyman_id':$('#handyman_id').val(),
+			'type':$('#historySelectType').val()
+		},
+		success: function (data) {
+			data=JSON.parse(data);
+			//console.log(data);
+			$("#historyDivChild").html("");
+			for(var i=0;i<data.length;++i){
+				createWork('historyDivChild',data[i],true);
+			}
+			$("[name='commmonSolvedComplaintDivName']").html("");
+		}
+	});
+});
+
+
+function createWork(slot,data,flag){
+	$("#"+slot).append(
+		'<div class=" w3-panel w3-white" id="panel_'+data.complaint_id+'">'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-calendar w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Date: &nbsp;</b></span><span>'+data.date.split("T")[0]+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-clock-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Time: &nbsp;</b></span><span >'+data.date.split("T")[1].split(".")[0]+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-lightbulb-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Euipment: &nbsp;</b></span><span >'+data.subject+'</span></h6>'+
+				'</div>'+
+			'</div>'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-id-badge w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>C_Id: &nbsp;</b></span><span ><span class="w3-rest"> '+data.complaint_id+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+				'	<h5><span class="fa fa-list-ul w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Type: &nbsp;</b></span><span ><span class="w3-rest"> '+data.type+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-third fontSourceSansPro">'+
+				'	<h5><span class="fa fa-user-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Assistance: &nbsp;</b></span><span ><span class="w3-rest"> '+data.catagory+'</span></span></h6>'+
+				'</div>'+
+			'</div>'+
+			'<div class="w3-row">'+
+			'	<div class="w3-third fontSourceSansPro">'+
+			'		<h5><span class="fa fa-home w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Room: &nbsp;</b></span><span ><span class="w3-rest"> '+data.gender+' '+data.room_no+'</span></h6>'+
+			'	</div>'+
+			'	<div class="w3-third fontSourceSansPro">'+
+			'		<h5><span class="fa fa-inr w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Cost: &nbsp;</b></span><span ><span class="w3-rest"> '+data.cost+'</span></h6>'+
+			'	</div>'+
+			'	<div class="w3-third fontSourceSansPro w3-dropdown-hover">'+
+			'		<h5><span class="fa fa-pencil w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Description: &nbsp;</b></span><span ><span class="w3-rest"> '+data.description+'</span></h6>'+
+			'		<div class="w3-dropdown-content w3-card-4" >'+
+				    '  <div class="w3-container">'+
+				    '    <p>'+data.descriptionFull+'</p>'+
+				    '  </div>'+
+				   ' </div>'+
+				'</div>'+
+			'</div>'+
+			'<div class="w3-row">'+
+				'<div class="w3-third fontSourceSansPro">'+
+					'<h5><span class="fa fa-phone w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Phone_no &nbsp;</b></span><span ><span class="w3-rest"> '+data.phone_no+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-col m5 s5 fontSourceSansPro">'+
+					'<h5><span class="fa fa-envolope-o w3-col m1 s3 w3-hide-small w3-hide-medium"></span></h5><h6><span><b>Email: &nbsp;</b></span><span ><span class="w3-rest"> '+data.email+'</span></h6>'+
+				'</div>'+
+				'<div class="w3-right w3-rest" name="commmonSolvedComplaintDivName">'+
+					'<input type="button" id="solved_'+data.complaint_id+'" class="w3-button w3-flat-belize-hole w3-hover-blue" style="margin-bottom:10px" value="Solved">'+
+				'</div>'+
+			'</div>'+
+		'</div>'
+	);
+	if(flag==true){
+		if(data.status==2)
+			$("#panel_"+data.complaint_id).addClass('w3-border-blue w3-rightbar');
+		else if(data.status==3)
+			$("#panel_"+data.complaint_id).addClass('w3-border-green w3-rightbar');
+		else if(data.status==1)
+			$("#panel_"+data.complaint_id).addClass('w3-border-yellow w3-rightbar');
+	}
+}
+
+</script>
+</html>
