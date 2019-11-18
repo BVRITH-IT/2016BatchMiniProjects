@@ -1,0 +1,56 @@
+----image_colorization----
+
+1) Open Command Prompt.
+2) Set the path for the folder in which the file is been stored.
+3) Run the command given below to get the desired results.
+
+python bw2color_image.py --image images/9.jpeg --prototxt model/colorization_deploy_v2.prototxt --model model/colorization_release_v2.caffemodel --points model/pts_in_hull.npy
+
+4) In this the gray image will be changed to a colored image.
+
+
+----video_colorization----
+
+1) Open Command Prompt.
+2) Set the path for the folder in which the file is been stored.
+3) Run the command given below to get the desired results.
+
+python bw2color_video.py --prototxt model/colorization_deploy_v2.prototxt --model model/colorization_release_v2.caffemodel --points model/pts_in_hull.npy
+
+4) In this the web cam will be opened and the original video will be changed into a gray as well as the colored video.
+
+
+----image_dog_filter----
+
+1) Open Command Prompt.
+2) Set the path for the folder in which the file is been stored.
+3) Run the command given below to get the desired results.
+
+python dog_filter.py(python filename.py)
+
+4) In this the dog filter is been added to the image given.
+
+
+----image_hat&dog_filter----
+
+1) Open Command Prompt.
+2) Set the path for the folder in which the file is been stored.
+3) Run the command given below to get the desired results.
+
+python hat&glaas_filter.py(python filename.py)
+
+4) In this the hat&glass filters are been added to the image given.
+
+
+----video_filter----
+
+1) Open Command Prompt.
+2) Set the path for the folder in which the file is been stored.
+3) Run the command given below to get the desired results.
+
+python video_filter.py
+
+4) In this the web cam will be opened and the filters will be added to the video that is running.We have given two choices in this if we choose 1 then we get hat&glass filter, if we choose any other number we get a dog filter.
+
+
+
